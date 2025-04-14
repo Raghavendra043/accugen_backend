@@ -283,6 +283,7 @@ app.post('/sendToAdmin', async(req, res)=>{
 		const mailOptions = {
 			from: "raghavndra074743@gmail.com",
 			to: "raghavendra074743@gmail.com",
+			cc : "admin@accugendental.com",
 			subject: `Account Request for Accugendental.com`,
 			text: "Account request",
 			html: ` Hi Admin, <br>
