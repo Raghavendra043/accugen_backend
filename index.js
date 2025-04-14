@@ -2,12 +2,15 @@
 const app = require('express')()
 const path = require('path')
 
+const dotenv = require('dotenv');
+dotenv.config();
 
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const crypto = require('crypto')
 
 
+const { privateKey } = JSON.parse(process.env.A_KEY);
 
 var handlebars = require('handlebars');
 var fs = require('fs');
@@ -19,13 +22,22 @@ const nodemailer = require("nodemailer")
 
 var admin = require("firebase-admin");
 
-var serviceAccount = require("./accugen-2d0dc-firebase-adminsdk-fbsvc-e48f5a1f74.json");
+// var serviceAccount = require("./accugen-2d0dc-firebase-adminsdk-fbsvc-e48f5a1f74.json");
 const { getData, getDocDataOnCondition } = require('./Firebase/firestore')
 const { getStyleDetails, number_to_word } = require('./Functions')
 
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount)
+// });
+
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
+	credential: admin.credential.cert({
+	  client_email: process.env.CLIENT_EMAIL,
+	  privateKey,
+	  project_id: process.env.PROJECT_ID
+	}),
+	
+  });
 
 const db = admin.firestore()
 const Auth = admin.auth();
