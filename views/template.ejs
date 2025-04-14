@@ -1,0 +1,578 @@
+<html>
+
+<head>
+    <style>
+        body {
+            border: 0;
+            padding: 0;
+            margin: 5%;
+            font-size: 0.5rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        .invoice {
+            width: 100%;
+            height: 100%;
+        }
+
+        .header {
+            background-color: #FEF8E9;
+            padding: 5px;
+            position: relative;
+            display: flex;
+            top: -5%;
+            width: 110%;
+            left: -5%;
+            /* font-size: 2rem; */
+            /* flex-direction: row; */
+            height: 150px;
+        }
+
+        .top_right {
+            position: absolute;
+            right: 40px;
+            text-align: right;
+            top: 60px;
+        }
+
+        .top_left {
+            position: absolute;
+            left: 40px;
+            top: 60px;
+
+        }
+
+        .fit {
+            width: fit-content;
+            height: fit-content;
+        }
+
+        .hori_center {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .verti_center {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .both_center {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* .down{
+            margin: 20px;
+        } */
+        .bill {
+            display: flex;
+            flex-direction: row;
+            margin-top: -10px;
+            position: relative;
+            font-size: 0.5rem;
+            gap: 5%;
+        }
+        .bill_table{
+            width: 95%;
+            margin-left: 2%;
+            border: none;
+            margin: none;
+            font-size: 0.5rem !important;
+            text-align: left;
+            margin-bottom: 10px;
+            margin-top: -10px;
+        }
+        .bill_table th, .bill_table th {
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        .bill_left {
+            left: 20px;
+            width:250px;
+            text-wrap: wrap;
+            text-align: left;
+        }
+
+        .bill_right {
+            /* right: px; */
+            width:250px;
+            position: relative;
+            right: -10px;
+            text-align: right !important;
+        }
+
+        .bill_middle {
+            /* width: 30%; */
+            left: 35%;
+            width:250px;
+        }
+
+        .bill1 {
+            display: flex;
+            flex-direction: column;
+            /* width: 150px; */
+            position: absolute;
+            text-align: left;
+
+        }
+
+        .des {
+            font-size: 0.4rem;
+        }
+        .product{
+            margin-top: 30px;
+        }
+        .product table,
+        .product th,
+        .product td {
+            
+            border: none;
+            font-size: 0.5rem;
+            text-align: left;
+        }
+
+        .product th {
+            color: gray;
+            font-weight: normal;
+            height: 30px !important;
+            font-size: 0.6rem;
+        }
+
+        .product th,
+        .product td {
+            height: 50px;
+            vertical-align: top;
+        }
+
+        table {
+            width: 100%;
+            /* margin-left: 5%; */
+        }
+
+        .tab1 {
+            width: 50%;
+        }
+        .tab2{
+            text-align: right;
+            width: 30%;
+        }
+
+        /* atk starts */
+        .dark-text {
+            font-weight: bold;
+        }
+
+        .netTotal {
+            color: white;
+            position: relative;
+            text-align: center;
+            display: flex;
+            font-weight: bold;
+            /* flex-direction: column; */
+            justify-content: center;
+            align-items: center;
+            background-color: #84053E;
+            padding: 10px;
+        }
+
+    
+        
+        .totdiv{
+            background: #84053E;
+            /* width: 70%; */
+            /* position: absolute; */
+            /* top: 0px;
+            right: 0px; */
+
+        }
+
+        .imgtd {
+            width: 400px;
+            text-align: right;
+            display: flex;
+            justify-content: end;
+            align-items: end;
+        }
+
+        body {
+            position: relative;
+        }
+
+
+        #lastdiv {
+            position: relative;
+            bottom: 50px;
+            left: 40%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 0.5rem;
+            align-items: center;
+            color: black;
+        }
+
+        #lastdiv h1 {
+            text-align: center;
+        }
+
+        #lastdiv h1:last-child {
+            color: #9A9A9A;
+        }
+
+        #logoimg {
+            width: 40px;
+            mix-blend-mode: screen;
+        }
+        #logoimg1{
+            margin-top: 10px;
+            width: 150px;
+        }
+
+        .thisRight {
+            text-align: right;
+        }
+
+        .taxdes{
+            padding: 0;
+            margin-top: 30px;
+            /* border: 1px solid black; */
+            width: 100%;
+        }
+        .taxdes td{
+            text-align: center;
+            /* border-right: 1px solid black;
+            border-left: 1px solid black; */
+        }
+        .taxdes th{
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 30px;
+            /* border: 1px solid black; */
+            text-align: center;
+            /* border: 1px solid black !important; */
+        }
+        
+        .tax_des{
+            width: 15%;
+            padding: 0;
+        }
+        .tax_end {
+            width: 25%;
+            padding: 0;
+        }
+        .text_rupees{
+            background-color: antiquewhite;
+            width: 60%;
+            padding: 0;
+        }
+        .text_amount{
+            width: 40% !important;
+            padding: 0;
+        }
+        
+        .no_margin{
+            font-size: 0.4rem;
+            margin-top: 0px !important;
+        }
+        .price_row th{
+            padding: 0;
+            border: none;
+            font-size: 0.6rem;
+            margin: 0;
+        }
+
+
+        .price_no{
+            height: 70px;
+            width: 40%;
+            background-color: #84053E;
+            text-align: center;
+            padding: 0;
+        }
+
+        .price_text{
+            height: 70px !important;
+            width: 60%;
+            font-weight: bold;
+            background-color: antiquewhite;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tax_head{
+            position: absolute;
+            width: 100%;
+            font-size: 0.4rem;
+            text-align: center;
+            top: -3%;
+            z-index: 100;
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
+        .footer_des{
+            display: flex;
+            flex-direction: column;
+            color: #9A9A9A;
+            text-align: center;
+            font-size: 0.5rem;
+        }
+        /* atk ends */
+    </style>
+</head>
+
+<body>
+    <div class="tax_head" > TAX INVOICE </div>
+    <div class="invoice">
+        <div class="header">
+            <div class="fit top_left">
+                <div><img id="logoimg"
+                        src="https://firebasestorage.googleapis.com/v0/b/maviinvi.appspot.com/o/LOGO%2Fm_m.png?alt=media&token=5ff42c9c-6663-4fce-afd7-890b2c4556ac"
+                        alt=""></div>
+                <div><strong>
+                    <img id="logoimg1"
+                        src="https://firebasestorage.googleapis.com/v0/b/maviinvi.appspot.com/o/LOGO%2FGroup.png?alt=media&token=d68e6a46-6941-4e26-99e5-a9adcd89bbcc"
+                        alt="">
+                    
+                </strong></div>
+            </div>
+            <div class="fit top_right ">
+                <div style="font-size: 1rem;">Blue Pearl Industries</div>
+                <div style="font-size: 0.5rem">Bhilai, CG</div>
+                <div style="font-size: 0.5rem;">22BMQPA3694H2ZY</div>
+                <!-- <div style="font-size: 0.7rem;"><a href="https://maviinci.in" >Maviinci.in</a></div> -->
+            </div>
+        </div>
+
+        <table class="bill_table">
+            <tr class="bill_header">
+              <th><b>Bill TO</b></th>
+              <th><b>Ship To</b></th>
+              <th></th>
+            </tr>
+            <tr>
+              <td><%= sampleData.billingAddress.to %></td>
+              <td><%= sampleData.devileryAddress.to %></td>
+              <td> </td>
+            </tr>
+            <tr>
+                <td><%= sampleData.billingAddress.add1 %></td>
+                <td><%= sampleData.devileryAddress.add1 %></td>
+                <td> INVOICE NO&nbsp;#&nbsp;<b><%= sampleData.invoice %> </td>
+            </tr>
+            <tr>
+                <td><%= sampleData.billingAddress.add2 %></td>
+                <td><%= sampleData.devileryAddress.add2 %></td>
+                <td>INVOICE DATE &nbsp; <%= sampleData.date %> </td>
+            </tr>
+          </table>
+
+
+        <!-- <div class="bill">
+            <div class="bill1 bill_left">
+                <b>
+                    <div>BILL TO</div>
+                </b>
+                <div>
+                    <%= sampleData.billingAddress.to %>
+                </div>
+                <div>
+                    <%= sampleData.billingAddress.add1 %>
+                </div>
+                <div>
+                    <%= sampleData.billingAddress.add2 %>
+                </div>
+            </div>
+            <div class="bill1 bill_middle">
+                <b>
+                    <div>SHIP TO</div>
+                </b>
+                <div>
+                    <%= sampleData.devileryAddress.to %>
+                </div>
+                <div>
+                    <%= sampleData.devileryAddress.add1 %>
+                </div>
+                <div>
+                    <%= sampleData.devileryAddress.add2 %>
+                </div>
+            </div>
+            <div class="bill1 bill_right">
+                <br />
+                <div>INVOICE NO&nbsp;&nbsp;#&nbsp;<b><label>
+                            <%= sampleData.invoice %>
+                        </label></b></div>
+                <div>Order ID&nbsp;&nbsp;#&nbsp;<b><label>
+                            <%= sampleData.invoice %>
+                        </label></b></div>
+                <div>INVOICE DATE &nbsp;<label>
+                        <%= sampleData.date %>
+                    </label></div>
+            </div>
+        </div> -->
+
+
+        <table class="product">
+            <tr>
+                <th class="tab1">Product</th>
+                <th class="tab2" >Qty</th>
+                <th class="thisRight">Price</th>
+                <!-- <th class="thisRight">Amount</th> -->
+            </tr>
+            <tr>
+
+
+                <% sampleData.products.forEach(element=> { %>
+            <tr>
+                <td class="tab1">
+                    <b>
+                        <%= element.type %>
+                    </b> <br> <label for="">
+                        <%= element.des %>
+                    </label>
+                </td>
+                <td class="tab2">
+                    <%= element.qty %>
+                </td>
+                <td class="thisRight">
+                    <%= element.price %>
+                </td>
+                <!-- <td class="dark-text thisRight">
+                    <%= element.amount %>
+                </td> -->
+            </tr>
+            <% }) %>
+
+
+
+
+                <tr>
+                    <td></td>
+                    <th class="thisRight">Sub Total</th>
+                    <td class="dark-text thisRight">
+                        <%= sampleData.total %>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <th class="thisRight">GST</th>
+                    <td class="dark-text thisRight">
+                        <%= sampleData.GST %>
+                    </td>
+                </tr>
+
+                <!-- <tr>
+                    <td></td>
+                    <th class="thisRight">Discount</th>
+                    <td class="dark-text thisRight">
+                        <%= sampleData.discount %>
+                    </td>
+                </tr> -->
+
+
+                <!-- <tr>
+                    <td></td>
+                    <th class="thisRight">Tax</th>
+                    <td class="dark-text thisRight">
+                        <%= sampleData.tax %>%
+                    </td>
+                </tr>
+
+                <tr class="customTr">
+                    <td>  </td>
+                    <td>  </td>
+
+
+                    <td colspan="2" class="netTotal">
+
+                        <div class="totdiv">
+                            <h3>Total</h3>
+                            <h2>
+                                <%= sampleData.netTotal %>
+                            </h2>
+                        </div>
+                    </td>
+
+                </tr> -->
+
+                
+        </table>
+
+
+        <table class="price_row" style="margin-top: 30px;">
+            <tr>
+                <th class="price_text" >  
+                   <label style="margin-top: 30px;"> <%= sampleData.price_words %>  </label> 
+                </th>
+                <th class="price_no"> 
+                    <div class="netTotal">
+                        <div>Total</div>
+                        
+                        <div> <%= sampleData.netTotal %> </div>
+
+                    </div>
+                </th>
+            </tr>
+        </table>
+
+        <table class="no_margin">
+            <tr>
+                <td style="width: 60%;" > </td>
+                <td style="width: 40%;" >
+                    <div style="width: 100%; text-align: center;">
+                        <div>FOR BLUE PEARL INDUSTRIES</div>
+                        <img style="width: 100%;height: 80px; object-fit: contain;"
+                            src="https://firebasestorage.googleapis.com/v0/b/maviinvi.appspot.com/o/LOGO%2FSIGN.png?alt=media&token=a61a150b-c76b-4def-ae70-e850f8ba9861"
+                            alt="">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+        <div class="footer_des">
+            <label class="fit"><a href= "https://maviinci.in/terms">Terms & Condition</a> </label><br/>
+            <label> Blue Pearl Industries, Shanthi Nagar Bhilai-3, Bhilai, Dist-durg( C.G ), Pin - 490021 </label><br/>
+            <label> GST No :   , Tel : 0788-406927 </label><br/>
+            <label> Website :  <a href="https://maviinci.in" > Maviinci.in </a>  &nbsp;&nbsp;&nbsp; Email : connect@bluepearlindustries.com </label><br/>
+            <label class="fit"> SUBJECT TO DURG JURISDICTION </label>
+
+            <!-- <label>Shanthi Nagar Bhilai-3, Bhilai</label><br/>
+            <label> Pin - 490021, Dist-durg( C.G ) </label><br/>
+            
+            <label style="font-size: 0.7rem;"><a href="https://maviinci.in" >Maviinci.in</a></label><br/>
+            <label class="fit"> SUBJECT TO DURG JURISDICTION </label> -->
+        </div>
+
+        <!-- <table>
+            <tr>
+                <td>  </td>
+                <td>  </td>
+                <td class="imgtd" colspan="2">
+                    
+                </td>
+            </tr>
+        </table> -->
+
+        <!-- <div id="lastdiv">
+            <h1> <a href= "https://maviinci.in/terms">Terms & Condition</a> </h1>
+        </div> -->
+
+
+
+    </div>
+</body>
+
+</html>

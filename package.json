@@ -1,0 +1,28 @@
+{
+  "name": "accugen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "accugen": "file:",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.10",
+    "express": "^4.17.1",
+    "firebase": "^10.13.2",
+    "firebase-admin": "^12.6.0",
+    "handlebars": "^4.7.8",
+    "nodemailer": "^6.9.14",
+    "nodemon": "^3.1.1",
+    "path": "^0.12.7",
+    "razorpay-payment-backend": "file:"
+  }
+}
