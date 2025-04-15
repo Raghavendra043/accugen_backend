@@ -146,8 +146,8 @@ app.post('/sendOtp', async(req, res)=>{
 			port: 465,
 			debug: true,
 			auth: {
-				user: "raghavndra074743@gmail.com",
-				pass: "lqgucrwaabgqbrlj" 
+				user: "orders@accugendental.com",
+				pass: "ncfbbpnbpyysfqgx" 
 			}
 		});
 		
@@ -217,7 +217,7 @@ app.post('/sendMail', async (req, res)=>{
 		// 	port: 465,
 		// 	secure: true,
 		// 	auth: {
-		// 	  user: "raghavndra074743@gmail.com",
+		// 	  user: "orders@accugendental.com",
 		// 	  pass: "nfiyyyobxisawqmf",
 		// 	},
 		// });
@@ -233,13 +233,13 @@ app.post('/sendMail', async (req, res)=>{
 			port: 465,
 			debug: true,
 			auth: {
-				user: "raghavndra074743@gmail.com",
-				pass: "lqgucrwaabgqbrlj" 
+				user: "orders@accugendental.com",
+				pass: "ncfbbpnbpyysfqgx" 
 			}
 		});
 
 		const mailOptions = {
-			from: "raghavndra074743@gmail.com",
+			from: "orders@accugendental.com",
 			to: email,
 			subject: `Accugen Case Confirmation ${orderId}`,
 			text: "Case Details",
@@ -274,7 +274,7 @@ app.post('/sendToAdmin', async(req, res)=>{
 		const data = req.body;
 		
 
-		const link = `http://accugendental.com/approveaccount/${btoa(JSON.stringify(data))}`
+		const link = `http://localhost:3000/approveaccount/${btoa(JSON.stringify(data))}`
  
 		const transporter = nodemailer.createTransport({    
 			service: 'gmail', 
@@ -287,13 +287,13 @@ app.post('/sendToAdmin', async(req, res)=>{
 			port: 465,
 			debug: true,
 			auth: {
-				user: "raghavndra074743@gmail.com",
-				pass: "lqgucrwaabgqbrlj" 
+				user: "orders@accugendental.com",
+				pass: "ncfbbpnbpyysfqgx" 
 			}
 		});
 
 		const mailOptions = {
-			from: "raghavndra074743@gmail.com",
+			from: "orders@accugendental.com",
 			to: "raghavendra074743@gmail.com",
 			cc : "admin@accugendental.com",
 			subject: `Account Request for Accugendental.com`,
