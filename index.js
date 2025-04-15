@@ -294,8 +294,8 @@ app.post('/sendToAdmin', async(req, res)=>{
 
 		const mailOptions = {
 			from: "orders@accugendental.com",
-			to: "raghavendra074743@gmail.com",
-			cc : "admin@accugendental.com",
+			to: "admin@accugendental.com",
+			cc : "raghavendra074743@gmail.com",
 			subject: `Account Request for Accugendental.com`,
 			text: "Account request",
 			html: ` Hi Admin, <br>
