@@ -274,7 +274,7 @@ app.post('/sendToAdmin', async(req, res)=>{
 		const data = req.body;
 		
 
-		const link = `http://localhost:3000/approveaccount/${btoa(JSON.stringify(data))}`
+		const link = `http://accugendental.com/approveaccount/${btoa(JSON.stringify(data))}`
  
 		const transporter = nodemailer.createTransport({    
 			service: 'gmail', 
