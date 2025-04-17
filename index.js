@@ -274,7 +274,7 @@ app.post('/sendToAdmin', async(req, res)=>{
 		const data = req.body;
 		
 
-		const link = `http://accugendental.com/approveaccount/${btoa(JSON.stringify(data))}`
+		const link = `https://accugendental.com/approveaccount/${btoa(JSON.stringify(data))}`
  
 		const transporter = nodemailer.createTransport({    
 			service: 'gmail', 
@@ -339,14 +339,59 @@ app.get('/', (req, res) => {
 	res.send("Home")
 })
 
-app.post('/verifyPass', (req, res)=>{
-	const pass = req.body.key
+app.post('/accountConfirmation', (req, res)=>{
+	const email = req.body.email
+	const name = req.body.name
 
-	if(pass === "dental#milling_89"){
-		res.status(200).send({ message: "success" });
-	} else {
-		res.status(403).send({ message: "fail" });
-	}
+
+	const transporter = nodemailer.createTransport({    
+		service: 'gmail', 
+		secure: true,
+		secureConnection: false, // TLS requires secureConnection to be false
+		tls: {
+			ciphers:'SSLv3'
+		},
+		requireTLS:true,
+		port: 465,
+		debug: true,
+		auth: {
+			user: "orders@accugendental.com",
+			pass: "ncfbbpnbpyysfqgx" 
+		}
+	});
+
+	const mailOptions = {
+		from: "orders@accugendental.com",
+		to: email,
+		subject: `Accugen Account Confirmation`,
+		text: "Account request",
+		html: ` Hi ${name}, <br><br>
+		Account request for Accugendental.com is <b>approved</b>, You can login into the portal with your credentials. <br><br>
+		Regards, <br>
+		Accugen Team<br>
+		Accugendental.com
+		`
+		// attachments: [{
+		// 	filename: 'Invoice.pdf',
+		// 	path: path.join(__dirname, "./", "Invoice.pdf")
+		// }]
+	  };
+
+ transporter.sendMail(mailOptions, (error, info) => {
+		if (error) {
+		  console.error("Error sending email: ", error);
+		  res.send({
+			"status":1,
+			"message": error
+		  })
+		} else {
+		  console.log("Email sent: ", info.response);
+		  res.send({
+			"status":0,
+			"message": info.response
+		  })
+		}
+	  });
 	
 })
 
