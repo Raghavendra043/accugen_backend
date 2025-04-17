@@ -381,7 +381,7 @@ app.post('/customToken', async (req, res) => {
         .createUser({
           email: email,
           emailVerified: true,
-          displayName: email,
+          displayName: name,
 		  password: password,
         })
         .then((userRecord) => {
@@ -392,7 +392,7 @@ app.post('/customToken', async (req, res) => {
           throw new Error(error.message);
         });
 
-      
+		
     	res.status(200).send({ message: "Account creation success" });
       
     }
