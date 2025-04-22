@@ -136,7 +136,7 @@ app.post('/sendOtp', async(req, res)=>{
 		const htmlToSend = template(replacements);
 
 		const transporter = nodemailer.createTransport({    
-			service: 'gmail', 
+			host: 'smtp.zoho.com',
 			secure: true,
 			secureConnection: false, // TLS requires secureConnection to be false
 			tls: {
@@ -147,7 +147,7 @@ app.post('/sendOtp', async(req, res)=>{
 			debug: true,
 			auth: {
 				user: "orders@accugendental.com",
-				pass: "ncfbbpnbpyysfqgx" 
+				pass: "BQ5MwjTwWYb3" 
 			}
 		});
 		
@@ -223,7 +223,7 @@ app.post('/sendMail', async (req, res)=>{
 		// });
 
 		const transporter = nodemailer.createTransport({    
-			service: 'gmail', 
+			host: 'smtp.zoho.com',
 			secure: true,
 			secureConnection: false, // TLS requires secureConnection to be false
 			tls: {
@@ -234,7 +234,7 @@ app.post('/sendMail', async (req, res)=>{
 			debug: true,
 			auth: {
 				user: "orders@accugendental.com",
-				pass: "ncfbbpnbpyysfqgx" 
+				pass: "BQ5MwjTwWYb3" 
 			}
 		});
 
@@ -277,7 +277,7 @@ app.post('/sendToAdmin', async(req, res)=>{
 		const link = `https://accugendental.com/approveaccount/${btoa(JSON.stringify(data))}`
  
 		const transporter = nodemailer.createTransport({    
-			service: 'gmail', 
+			host: 'smtp.zoho.com',
 			secure: true,
 			secureConnection: false, // TLS requires secureConnection to be false
 			tls: {
@@ -288,7 +288,7 @@ app.post('/sendToAdmin', async(req, res)=>{
 			debug: true,
 			auth: {
 				user: "orders@accugendental.com",
-				pass: "ncfbbpnbpyysfqgx" 
+				pass: "BQ5MwjTwWYb3" 
 			}
 		});
 
@@ -345,7 +345,7 @@ app.post('/accountConfirmation', (req, res)=>{
 
 
 	const transporter = nodemailer.createTransport({    
-		service: 'gmail', 
+		host: 'smtp.zoho.com', 
 		secure: true,
 		secureConnection: false, // TLS requires secureConnection to be false
 		tls: {
@@ -356,7 +356,7 @@ app.post('/accountConfirmation', (req, res)=>{
 		debug: true,
 		auth: {
 			user: "orders@accugendental.com",
-			pass: "ncfbbpnbpyysfqgx" 
+			pass: "BQ5MwjTwWYb3" 
 		}
 	});
 
