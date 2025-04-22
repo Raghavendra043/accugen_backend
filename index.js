@@ -136,12 +136,9 @@ app.post('/sendOtp', async(req, res)=>{
 		const htmlToSend = template(replacements);
 
 		const transporter = nodemailer.createTransport({    
-			host: 'smtp.zoho.com',
+			host: 'smtp.zoho.in',
 			secure: true,
-			secureConnection: false, // TLS requires secureConnection to be false
-			tls: {
-				ciphers:'SSLv3'
-			},
+			
 			requireTLS:true,
 			port: 465,
 			debug: true,
@@ -223,12 +220,9 @@ app.post('/sendMail', async (req, res)=>{
 		// });
 
 		const transporter = nodemailer.createTransport({    
-			host: 'smtp.zoho.com',
+			host: 'smtp.zoho.in',
 			secure: true,
-			secureConnection: false, // TLS requires secureConnection to be false
-			tls: {
-				ciphers:'SSLv3'
-			},
+			
 			requireTLS:true,
 			port: 465,
 			debug: true,
@@ -277,12 +271,9 @@ app.post('/sendToAdmin', async(req, res)=>{
 		const link = `https://accugendental.com/approveaccount/${btoa(JSON.stringify(data))}`
  
 		const transporter = nodemailer.createTransport({    
-			host: 'smtp.zoho.com',
+			host: 'smtp.zoho.in',
 			secure: true,
-			secureConnection: false, // TLS requires secureConnection to be false
-			tls: {
-				ciphers:'SSLv3'
-			},
+			
 			requireTLS:true,
 			port: 465,
 			debug: true,
@@ -345,7 +336,7 @@ app.post('/accountConfirmation', (req, res)=>{
 
 
 	const transporter = nodemailer.createTransport({    
-		host: 'smtp.zoho.com', 
+		host: 'smtp.zoho.in', 
 		secure: true,
 		secureConnection: false, // TLS requires secureConnection to be false
 		tls: {
